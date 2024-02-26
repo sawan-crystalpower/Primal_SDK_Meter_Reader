@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permissions -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+<!--    remove WRITE AND READ EXTERNAL permission IF MediaStore work for android 9 and below -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="29"/>
+    <!-- Scoped storage permissions for Android 10 and above -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<!--    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />-->
+<!--    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />-->
+<!--    Currently scoped storage is enforced on android 10 and legacy is disable on android 10.
+        to enable legacy on android 10
+        add android:requestLegacyExternalStorage="true" inside ,application tag  below
+        it can only be declared inside app manifest and not inside sdk manifest file-->
+<!--    android:requestLegacyExternalStorage="true"-->
+
+
+    <application
+
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Primal2"
+        tools:targetApi="31">
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
